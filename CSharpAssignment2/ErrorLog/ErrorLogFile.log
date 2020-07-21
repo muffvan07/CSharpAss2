@@ -1,0 +1,168 @@
+                   --------------------- Error(2020-06-17 15:58:11.7012)MUFADDAL-------------------- 
+                   
+                   Exception Type:System.DivideByZeroException
+                   Exception Message:Attempted to divide by zero.
+                   Stack Trace:
+                   Additional Info:Error occured in Home controller Index Action
+                   
+                   --------------------- Error(2020-06-18 14:55:30.1238)MUFADDAL-------------------- 
+                   
+                   Exception Type:System.NullReferenceException
+                   Exception Message:Object reference not set to an instance of an object.
+                   Stack Trace:
+                   Additional Info:Error occured in Product controller Edit Product POST Action
+                   
+                   --------------------- Error(2020-06-18 14:55:34.6019)MUFADDAL-------------------- 
+                   
+                   Exception Type:System.NullReferenceException
+                   Exception Message:Object reference not set to an instance of an object.
+                   Stack Trace:
+                   Additional Info:Error occured in Product controller Edit Product POST Action
+                   
+                   --------------------- Error(2020-06-18 14:55:45.9604)MUFADDAL-------------------- 
+                   
+                   Exception Type:System.NullReferenceException
+                   Exception Message:Object reference not set to an instance of an object.
+                   Stack Trace:
+                   Additional Info:Error occured in Product controller Edit Product POST Action
+                   
+                   --------------------- Error(2020-06-18 16:50:00.8112)MUFADDAL-------------------- 
+                   
+                   Exception Type:System.NullReferenceException
+                   Exception Message:Object reference not set to an instance of an object.
+                   Stack Trace:
+                   Additional Info:Error occured in Product controller Edit Product POST Action
+                   
+                   --------------------- Error(2020-06-18 18:14:35.8389)MUFADDAL-------------------- 
+                   
+                   Exception Type:System.NullReferenceException
+                   Exception Message:Object reference not set to an instance of an object.
+                   Stack Trace:
+                   Additional Info:Error occured in Product controller Edit Product POST Action
+                   
+                   --------------------- Error(2020-06-18 18:15:42.9179)MUFADDAL-------------------- 
+                   
+                   Exception Type:System.NullReferenceException
+                   Exception Message:Object reference not set to an instance of an object.
+                   Stack Trace:
+                   Additional Info:Error occured in Product controller Edit Product POST Action
+                   
+                   --------------------- Error(2020-06-18 18:19:44.7349)MUFADDAL-------------------- 
+                   
+                   Exception Type:System.NullReferenceException
+                   Exception Message:Object reference not set to an instance of an object.
+                   Stack Trace:
+                   Additional Info:Error occured in Product controller Edit Product POST Action
+                   
+                   --------------------- Error(2020-06-18 18:48:44.3989)MUFADDAL-------------------- 
+                   
+                   Exception Type:System.NullReferenceException
+                   Exception Message:Object reference not set to an instance of an object.
+                   Stack Trace:
+                   Additional Info:Error occured in Product controller Edit Product POST Action
+                   
+                   --------------------- Error(2020-06-18 19:02:04.7446)MUFADDAL-------------------- 
+                   
+                   Exception Type:System.NullReferenceException
+                   Exception Message:Object reference not set to an instance of an object.
+                   Stack Trace:
+                   Additional Info:Error occured in Product controller Edit Product POST Action
+                   
+                   --------------------- Error(2020-06-18 19:02:14.1820)MUFADDAL-------------------- 
+                   
+                   Exception Type:System.NullReferenceException
+                   Exception Message:Object reference not set to an instance of an object.
+                   Stack Trace:
+                   Additional Info:Error occured in Product controller Edit Product POST Action
+                   
+                   --------------------- Error(2020-06-18 19:03:37.8848)MUFADDAL-------------------- 
+                   
+                   Exception Type:System.NullReferenceException
+                   Exception Message:Object reference not set to an instance of an object.
+                   Stack Trace:
+                   Additional Info:Error occured in Product controller Edit Product POST Action
+                   
+                   --------------------- Error(2020-06-18 19:04:14.4871)MUFADDAL-------------------- 
+                   
+                   Exception Type:System.NullReferenceException
+                   Exception Message:Object reference not set to an instance of an object.
+                   Stack Trace:
+                   Additional Info:Error occured in Product controller Edit Product POST Action
+                   
+                   --------------------- Error(2020-06-18 19:04:52.0052)MUFADDAL-------------------- 
+                   
+                   Exception Type:System.NullReferenceException
+                   Exception Message:Object reference not set to an instance of an object.
+                   Stack Trace:
+                   Additional Info:Error occured in Product controller Edit Product POST Action
+                   
+                   --------------------- Error(2020-06-18 19:12:21.4800)MUFADDAL-------------------- 
+                   
+                   Exception Type:System.NullReferenceException
+                   Exception Message:Object reference not set to an instance of an object.
+                   Stack Trace:
+                   Additional Info:Error occured in Product controller Edit Product POST Action
+                   
+                   --------------------- Error(2020-06-18 19:13:07.9089)MUFADDAL-------------------- 
+                   
+                   Exception Type:System.NullReferenceException
+                   Exception Message:Object reference not set to an instance of an object.
+                   Stack Trace:
+                   Additional Info:Error occured in Product controller Edit Product POST Action
+                   
+                   --------------------- Error(2020-06-18 19:13:32.9202)MUFADDAL-------------------- 
+                   
+                   Exception Type:System.NullReferenceException
+                   Exception Message:Object reference not set to an instance of an object.
+                   Stack Trace:
+                   Additional Info:Error occured in Product controller Edit Product POST Action
+                   
+                   --------------------- Error(2020-06-18 19:15:14.7684)MUFADDAL-------------------- 
+                   
+                   Exception Type:System.NullReferenceException
+                   Exception Message:Object reference not set to an instance of an object.
+                   Stack Trace:
+                   Additional Info:Error occured in Product controller Edit Product POST Action
+                   
+                   --------------------- Error(2020-06-18 19:16:08.7624)MUFADDAL-------------------- 
+                   
+                   Exception Type:System.NullReferenceException
+                   Exception Message:Object reference not set to an instance of an object.
+                   Stack Trace:
+                   Additional Info:Error occured in Product controller Edit Product POST Action
+                   
+                   --------------------- Error(2020-06-18 19:16:46.5928)MUFADDAL-------------------- 
+                   
+                   Exception Type:System.NullReferenceException
+                   Exception Message:Object reference not set to an instance of an object.
+                   Stack Trace:
+                   Additional Info:Error occured in Product controller Edit Product POST Action
+                   
+                   --------------------- Error(2020-06-18 19:17:16.5702)MUFADDAL-------------------- 
+                   
+                   Exception Type:System.NullReferenceException
+                   Exception Message:Object reference not set to an instance of an object.
+                   Stack Trace:
+                   Additional Info:Error occured in Product controller Edit Product POST Action
+                   
+                   --------------------- Error(2020-06-18 19:17:34.9939)MUFADDAL-------------------- 
+                   
+                   Exception Type:System.NullReferenceException
+                   Exception Message:Object reference not set to an instance of an object.
+                   Stack Trace:
+                   Additional Info:Error occured in Product controller Edit Product POST Action
+                   
+                   --------------------- Error(2020-06-19 12:13:26.5130)MUFADDAL-------------------- 
+                   
+                   Exception Type:System.FormatException
+                   Exception Message:Input string was not in a correct format.
+                   Stack Trace:
+                   Additional Info:Error occured in Product controller CreateProduct POST Action
+                   
+                   --------------------- Error(2020-06-19 12:13:47.3441)MUFADDAL-------------------- 
+                   
+                   Exception Type:System.FormatException
+                   Exception Message:Input string was not in a correct format.
+                   Stack Trace:
+                   Additional Info:Error occured in Product controller CreateProduct POST Action
+                   

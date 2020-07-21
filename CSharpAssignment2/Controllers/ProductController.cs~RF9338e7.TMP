@@ -1,0 +1,121 @@
+﻿using CSharpAssignment2.Filters;
+using CSharpAssignment2.Interface;
+using CSharpAssignment2.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace CSharpAssignment2.Controllers
+{
+    [AuthorizationFilter]
+    public class ProductController : Controller
+    {
+        readonly IProductRepository _repository;
+
+        public ProductController() : this(new ProductRepository()) { }
+
+        public ProductController(IProductRepository repository)
+        {
+            _repository = repository;
+        }
+
+
+        //// GET: /Product/
+        public ActionResult ProductList()
+        {
+            ViewData["ControllerName"] = this.ToString();
+            return View("ProductList", _repository.ProductList());
+        }
+
+
+        //// GET: /Product/Details/5
+        public ActionResult ProductDetails(int id = 0)
+        {
+            tbl_Product product = _repository.GetProductByID(id);
+            return View("ProductDetails", product);
+        }
+
+
+        // GET: /Product/Create
+        public ActionResult CreateProduct()
+        {
+            return View("CreateProduct");
+        }
+
+
+        // POST: /Product/Create
+        [HttpPost]
+        public ActionResult CreateProduct([Bind(Exclude = "Id")] tbl_Product product)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    _repository.CreateProduct(product);
+                    return RedirectToAction("ProductList");
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", ex);
+                ViewData["CreateError"] = "Unable to create; view innerexception";
+            }
+            return View("CreateProduct");
+        }
+
+
+        // GET: /Product/Edit/5
+        public ActionResult Edit(int id = 0)
+        {
+            var product = _repository.GetProductByID(id);
+            return View(product);
+        }
+
+
+        // GET: /Product/Edit/5
+        [HttpPost]
+        public ActionResult Edit(int id, FormCollection collection)
+        {
+            tbl_Product product = _repository.GetProductByID(id);
+            try
+            {
+                if (TryUpdateModel(product))
+                {
+                    _repository.SaveChanges();
+                    return RedirectToAction("ProductList");
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex.InnerException != null)
+                    ViewData["EditError"] = ex.InnerException.ToString();
+                else
+                    ViewData["EditError"] = ex.ToString();
+            }
+            return View(product);
+        }
+
+
+        // GET: /Product/Delete/5
+        public ActionResult Delete(int id)
+        {
+            var product = _repository.GetProductByID(id);
+            return View(product);
+        }
+
+        private CSharpAssignment2Entities db;
+
+        // POST: /Product/Delete/5
+        [HttpPost]
+        public ActionResult DeleteConfirm(int id)
+        {
+            var conToDel = _repository.GetProductByID(id);
+            db.tbl_Product.Remove(conToDel);
+            db.SaveChanges();
+            return RedirectToAction("ProductList");
+        }
+
+    }
+}

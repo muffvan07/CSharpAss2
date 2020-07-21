@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "UserVerification";
+}
+
+<h2>User Verification Process</h2>
+
+<div class="success alert-success">
+    <strong>Message..!!</strong>  @ViewBag.Message,  please click here to Login 
+</div> 
+<br />
+
+<a href="@Url.Action("Login", "LoginRegister")" class="btn btn-primary">Login</a>

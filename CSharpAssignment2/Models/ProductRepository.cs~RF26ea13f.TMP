@@ -1,0 +1,75 @@
+﻿using CSharpAssignment2.Interface;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace CSharpAssignment2.Models
+{
+    public class ProductRepository : IProductRepository
+    {
+        /// <summary>
+        /// CSharpAssignment2 entity object
+        /// </summary>
+        private readonly CSharpAssignment2Entities db = new CSharpAssignment2Entities();
+
+
+        /// <summary>
+        /// This method is used to get all Product listing
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<tbl_Product> ProductList()
+        {
+            return db.tbl_Product.ToList();
+        }
+
+
+        /// <summary>
+        /// This method used to filter Product by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public tbl_Product GetProductByID(int id)
+        {
+            return db.tbl_Product.FirstOrDefault(d => d.id == id);
+        }
+
+
+        /// <summary>
+        /// This method is used to create new Product
+        /// </summary>
+        /// <param name="Create"></param>
+        public void CreateProduct(tbl_Product product)
+        {
+            if (product.ProductName != null && product.Image != null)
+            {
+                string fileName = Path.GetFileNameWithoutExtension(product.UploadImage.FileName);
+                string extension = Path.GetExtension(product.UploadImage.FileName);
+                fileName = fileName + DateTime.Now.ToString("yymmssff") + extension;
+                product.Image = fileName;
+                product.UploadImage.SaveAs(Path.Combine(HttpContext.Current.Server.MapPath("~/Images"), fileName));
+                db.tbl_Product.Add(product);
+                db.SaveChanges();
+            }
+        }
+
+
+        /// <summary>
+        ///  Save chages functions
+        /// </summary>
+        /// <returns></returns>
+        public int SaveChanges()
+        {
+            return db.SaveChanges();
+        }
+
+        public void DeleteProduct(int id)
+        {
+            var product = GetProductByID(id);
+            db.tbl_Product.Remove(product);
+            db.SaveChanges();
+        }
+    }
+}

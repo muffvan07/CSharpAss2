@@ -1,0 +1,160 @@
+﻿using CSharpAssignment2.Filters;
+using CSharpAssignment2.Interface;
+using CSharpAssignment2.Models;
+using NLog;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace CSharpAssignment2.Controllers
+{
+    public class ProductController : Controller
+    {
+        readonly IProductRepository _repository;
+
+        public ProductController() : this(new ProductRepository()) { }
+
+        public ProductController(IProductRepository repository)
+        {
+            _repository = repository;
+        }
+
+        readonly Logger logger = LogManager.GetCurrentClassLogger();
+
+
+        //// GET: /Product/
+        public ActionResult ProductList()
+        {
+            ViewData["ControllerName"] = this.ToString();
+            return View("ProductList", _repository.ProductList());
+        }
+
+
+        //// GET: /Product/Details/5
+        public ActionResult ProductDetails(int id = 0)
+        {
+            tbl_Product product = _repository.GetProductByID(id);
+            return View("ProductDetails", product);
+        }
+
+
+        //// GET: /Product/Create
+        public ActionResult CreateProduct()
+        {
+            return View("CreateProduct");
+        }
+
+
+        //// POST: /Product/Create
+        [HttpPost]
+        public ActionResult CreateProduct([Bind(Exclude = "Id")] tbl_Product product)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    _repository.CreateProduct(product);
+                    return RedirectToAction("ProductList");
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, "Error occured in Product controller CreateProduct POST Action");
+            }
+            return View("CreateProduct");
+        }
+
+
+        //// GET: /Product/Edit/5
+        public ActionResult EditProduct(int id = 0)
+        {
+            var product = _repository.GetProductByID(id);
+            return View(product);
+        }
+
+
+        //// GET: /Product/Edit/5
+        [HttpPost]
+        public ActionResult EditProduct(int id, FormCollection collection)
+        {
+            tbl_Product product = _repository.GetProductByID(id);
+            try
+            {
+                if (product.ProductName != null && product.UploadImage != null)
+                {
+                    string fileName = Path.GetFileNameWithoutExtension(product.UploadImage.FileName);
+                    string extension = Path.GetExtension(product.UploadImage.FileName);
+                    fileName += extension;
+                    product.Image = fileName;
+                    fileName = Path.Combine(Server.MapPath("~/Images/"), fileName);
+                    product.UploadImage.SaveAs(fileName);
+                    _repository.SaveChanges();
+                    return RedirectToAction("ProductList");
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, "Error occured in Product controller Edit Product POST Action");
+            }
+            return View(product);
+        }
+
+
+        //// POST: /Product/Delete/5
+        public JsonResult Delete(int productId)
+        {
+            bool result = false;
+            try
+            {
+                _repository.DeleteProduct(productId);
+                result = true;
+                return Json(new { redirectTo = Url.Action("ProductList", "Product"), returnParam = result }, JsonRequestBehavior.AllowGet);
+            }
+            catch
+            {
+                return Json(result, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+
+        [HttpPost]
+        public ActionResult DeleteSelected(string[] ids)
+        {
+            int[] id = null;
+            if (ids != null)
+            {
+                id = new int[ids.Length];
+                int j = 0;
+                foreach (string i in ids)
+                {
+                    int.TryParse(i, out id[j++]);
+                }
+            }
+
+            if (id != null && id.Length > 0)
+            {
+                List<tbl_Product> allSelected = new List<tbl_Product>();
+                using (CSharpAssignment2Entities dc = new CSharpAssignment2Entities())
+                {
+                    allSelected = dc.tbl_Product.Where(a => id.Contains(a.id)).ToList();
+                    try
+                    {
+                        foreach (var i in allSelected)
+                        {
+                            dc.tbl_Product.Remove(i);
+                            dc.SaveChanges();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        logger.Error(ex, "Error occured in Product controller Delete Product POST Action");
+                    }
+                }
+            }
+            return RedirectToAction("ProductList");
+        }
+    }
+}

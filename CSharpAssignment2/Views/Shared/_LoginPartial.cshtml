@@ -1,0 +1,12 @@
+﻿
+@if (HttpContext.Current.Session["UserName"] != null)
+{
+    <li>@Html.ActionLink("Hii, " + HttpContext.Current.Session["UserName"], "ChangeProfile", "User", new { id = HttpContext.Current.Session["UserID"] }, null)</li>
+    <li>@Html.ActionLink("Logout", "Logout", "LoginRegister")</li>
+}
+else
+{
+    <li>@Html.ActionLink("Register", "Register", "LoginRegister")</li>
+    <li>@Html.ActionLink("Login", "Login", "LoginRegister")</li>
+}
+
